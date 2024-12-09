@@ -24,6 +24,7 @@ public class BootstrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
         Author mishal = new Author();
         mishal.setFirstName("Mishal");
         mishal.setLastName("Al Shahari");
@@ -48,6 +49,8 @@ public class BootstrapData implements CommandLineRunner {
 
         mishalSaved.getBooks().add(since1961);
         navneetSaved.getBooks().add(lopSaved);
+        since1961Saved.getAuthors().add(mishalSaved);
+        lopSaved.getAuthors().add(navneetSaved);
 
         Publisher sunbooks = new Publisher();
         sunbooks.setPublisherName("Sun Books");
@@ -69,7 +72,6 @@ public class BootstrapData implements CommandLineRunner {
         System.out.println("In Bootstrap");
         System.out.println("Author count: " + authorRepository.count());
         System.out.println("Book count: " + bookRepository.count());
-
         System.out.println("Publisher count: " + publisherRepository.count());
     }
 }
